@@ -31,7 +31,7 @@ public class UserDaoService {
 			if(user.getId()==id)
 				return user;
 		}
-		return null;
+		throw new UserNotFoundException("User does not exists");
 	}
 
 }

@@ -2,6 +2,7 @@ package com.spring.restfull.user;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -32,6 +33,18 @@ public class UserDaoService {
 				return user;
 		}
 		throw new UserNotFoundException("User does not exists");
+	}
+	
+	public User deleteById(int id) {
+		
+		Iterator<User> listUser = users.iterator();
+		User user = null;
+		while(listUser.hasNext()) {
+			user = listUser.next();
+			if(user.getId()==id)
+				return user;
+		}
+		return null;
 	}
 
 }

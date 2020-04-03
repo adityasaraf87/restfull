@@ -2,10 +2,15 @@ package com.spring.restfull.user;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
+
 public class User {
 
 	private int id;
+	@Size(min=2, message="Name should have atleast 2 characters")
 	private String name;
+	@Past
 	private Date birthDate;
 	
 	public User(int id, String name, Date birthDate) {
